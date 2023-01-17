@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="MIT License"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+
+[[mods]]
+modId="devalued"
+version="${file.jarVersion}"
+displayName="Devalued"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+#logoFile="devalued.png"
+credits="Joe Mama"
+authors="LegoMaster3650"
+displayTest="MATCH_VERSION"
+description='''
+Diamonds are dying! This is my attempt to save them.
+'''
+
+[[dependencies.devalued]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+	
+[[dependencies.devalued]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
