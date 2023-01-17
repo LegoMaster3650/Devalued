@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GCG",
+		"GHG",
+		"RDR"
+	],
+	"key": {
+		"G": {
+			"tag": "forge:ingots/gold"
+		},
+		"C": {
+			"item": "minecraft:comparator"
+		},
+		"H": {
+			"item": "minecraft:hopper"
+		},
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"D": {
+			"tag": "forge:gems/diamond"
+		}
+	},
+	"result": {
+		"item": "goldenhopper:golden_hopper"
+	}
+}

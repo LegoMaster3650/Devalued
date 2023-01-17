@@ -18,15 +18,30 @@ Diamonds are dying! This is my attempt to save them.
 '''
 
 [[dependencies.devalued]]
-    modId="forge"
-    mandatory=true
-    versionRange="[43,)"
-    ordering="NONE"
-    side="BOTH"
-	
+	modId="forge"
+	mandatory=true
+	versionRange="[43,)"
+	ordering="AFTER"
+	side="BOTH"
+
 [[dependencies.devalued]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.19.2,1.20)"
-    ordering="NONE"
-    side="BOTH"
+	modId="minecraft"
+	mandatory=true
+	versionRange="[1.19.2,1.20)"
+	ordering="AFTER"
+	side="BOTH"
+
+[[dependencies.devalued]]
+	modId="goldenhopper"
+	mandatory=false
+	versionRange="[1.0.0,)"
+	ordering="AFTER"
+	side="BOTH"
+
+[[dependencies.devalued]]
+	modId="honeystickypistonmod"
+	mandatory=false
+	versionRange="[1.0.0,)"
+	ordering="AFTER"
+	side="BOTH"
+	

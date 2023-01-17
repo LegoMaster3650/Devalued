@@ -20,6 +20,7 @@ public class Devalued {
 		
 		bus.addListener(this::setup);
 		
+		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

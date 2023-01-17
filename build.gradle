@@ -1,9 +1,24 @@
-plugins {
-	id 'eclipse'
-	id 'maven-publish'
-	id 'net.minecraftforge.gradle' version '5.1.+'
-	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+buildscript {
+	repositories {
+		// These repositories are only for Gradle plugins, put any other repositories in the repository block further below
+		maven { url = 'https://maven.minecraftforge.net' }
+		maven { url = 'https://repo.spongepowered.org/maven' }
+		mavenCentral()
+		maven { url = 'https://maven.parchmentmc.org' }
+	}
+	dependencies {
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+		classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+		classpath 'org.parchmentmc:librarian:1.+'
+	}
 }
+
+apply plugin: 'net.minecraftforge.gradle'
+
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 version = '0.0.1'
 group = 'io._3650.devalued'
@@ -87,11 +102,63 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-	
+	maven {
+		url 'https://cursemaven.com'
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	maven {
+		// location of the maven that hosts JEI files
+		name = "Progwml6 maven"
+		url = "https://dvs1.progwml6.com/files/maven/"
+	}
+	maven {
+		// location of a maven mirror for JEI files, as a fallback
+		name = "ModMaven"
+		url = "https://modmaven.dev"
+	}
+	flatDir {
+		dir 'extmods' //for mods with no curse api :(
+	}
 }
 
 dependencies {
-	minecraft 'net.minecraftforge:forge:1.19.2-43.1.7'
+	minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+	
+	//optional dependencies for some features or compat
+	runtimeOnly fg.deobf("curse.maven:golden-hopper-374736:3874175")
+	runtimeOnly fg.deobf("extmods:honeystickypistonmod:1.19.2-1.0.0") //no api downloads :spunch_pob:
+	
+	//bring in appleskin because I need food value feedback even in a mod that has nothing to do with food
+	runtimeOnly fg.deobf("curse.maven:appleskin-248787:3872808")
+	//configured, catalogue, and better mods button to help stop my config nightmares
+	runtimeOnly fg.deobf("curse.maven:configured-457570:4011355")
+	runtimeOnly fg.deobf("curse.maven:catalogue-459701:3873264")
+	runtimeOnly fg.deobf("curse.maven:better-mods-button-541584:3963202")
+	//QOL mods because i am an impatient being who is spending 50% of my time developing this on a non-gaming laptop (and the other 50% on a gaming pc)
+	runtimeOnly fg.deobf("curse.maven:rubidium-574856:3973894")
+	runtimeOnly fg.deobf("curse.maven:lazy-dfu-forge-460819:3831644")
+	runtimeOnly fg.deobf("curse.maven:smooth-boot-reloaded-633412:4162940")
+	runtimeOnly fg.deobf("curse.maven:mouse-tweaks-60089:3871353")
+	runtimeOnly fg.deobf("curse.maven:shutup-experimental-settings-407174:3759881")
+	
+	// compile against the JEI API but do not include it at runtime
+	compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
+	compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
+	// at runtime, use the full JEI jar for Forge
+	runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+	
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+	add sourceSets.main, 'devalued.refmap.json'
+	config 'devalued.mixins.json'
+	
+	debug.verbose = true
+	debug.export = true
+	dumpTargetOnFailure = true
 }
 
 jar {

@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"key": {
+		"#": {
+			"item": "minecraft:polished_deepslate"
+		},
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"W": {
+			"tag": "minecraft:logs"
+		},
+		"D": {
+			"tag": "forge:gems/diamond"
+		}
+	},
+	"pattern": [
+		"WWW",
+		"#D#",
+		"#R#"
+	],
+	"result": {
+		"count": 8,
+		"item": "minecraft:piston"
+	}
+}
