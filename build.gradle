@@ -21,8 +21,8 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 version = '0.0.1'
-group = 'io._3650.devalued'
-archivesBaseName = 'devalued'
+group = 'io._3650.diamante'
+archivesBaseName = 'diamante'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -40,10 +40,10 @@ minecraft {
 
 			property 'forge.logging.console.level', 'debug'
 
-			property 'forge.enabledGameTestNamespaces', 'devalued'
+			property 'forge.enabledGameTestNamespaces', 'diamante'
 
 			mods {
-				devalued {
+				diamante {
 					source sourceSets.main
 				}
 			}
@@ -56,10 +56,10 @@ minecraft {
 
 			property 'forge.logging.console.level', 'debug'
 
-			property 'forge.enabledGameTestNamespaces', 'devalued'
+			property 'forge.enabledGameTestNamespaces', 'diamante'
 
 			mods {
-				devalued {
+				diamante {
 					source sourceSets.main
 				}
 			}
@@ -72,10 +72,10 @@ minecraft {
 
 			property 'forge.logging.console.level', 'debug'
 
-			property 'forge.enabledGameTestNamespaces', 'devalued'
+			property 'forge.enabledGameTestNamespaces', 'diamante'
 
 			mods {
-				devalued {
+				diamante {
 					source sourceSets.main
 				}
 			}
@@ -88,10 +88,10 @@ minecraft {
 
 			property 'forge.logging.console.level', 'debug'
 
-			args '--mod', 'devalued', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+			args '--mod', 'diamante', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
 			mods {
-				devalued {
+				diamante {
 					source sourceSets.main
 				}
 			}
@@ -118,9 +118,6 @@ repositories {
 		name = "ModMaven"
 		url = "https://modmaven.dev"
 	}
-	flatDir {
-		dir 'extmods' //for mods with no curse api :(
-	}
 }
 
 dependencies {
@@ -128,7 +125,6 @@ dependencies {
 	
 	//optional dependencies for some features or compat
 	runtimeOnly fg.deobf("curse.maven:golden-hopper-374736:3874175")
-	runtimeOnly fg.deobf("extmods:honeystickypistonmod:1.19.2-1.0.0") //no api downloads :spunch_pob:
 	
 	//bring in appleskin because I need food value feedback even in a mod that has nothing to do with food
 	runtimeOnly fg.deobf("curse.maven:appleskin-248787:3872808")
@@ -153,8 +149,8 @@ dependencies {
 }
 
 mixin {
-	add sourceSets.main, 'devalued.refmap.json'
-	config 'devalued.mixins.json'
+	add sourceSets.main, 'diamante.refmap.json'
+	config 'diamante.mixins.json'
 	
 	debug.verbose = true
 	debug.export = true
@@ -164,7 +160,7 @@ mixin {
 jar {
 	manifest {
 		attributes([
-				"Specification-Title"     : "devalued",
+				"Specification-Title"     : "diamante",
 				"Specification-Vendor"    : "LegoMaster3650",
 				"Specification-Version"   : "1", // We are version 1 of ourselves
 				"Implementation-Title"    : project.name,

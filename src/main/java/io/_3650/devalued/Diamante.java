@@ -8,14 +8,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(Devalued.MOD_ID)
-public class Devalued {
+@Mod(Diamante.MOD_ID)
+public class Diamante {
 	
-	public static final String MOD_ID = "devalued";
+	public static final String MOD_ID = "diamante";
 	
 	private static final Logger LOGGER = LogUtils.getLogger();
 	
-	public Devalued() {
+	public Diamante() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		
 		bus.addListener(this::setup);

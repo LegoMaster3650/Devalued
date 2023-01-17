@@ -1,4 +1,4 @@
-Devalued
+Diamante
 ========
 
 This mod seeks to return the fun, value, and utilities to diamonds!

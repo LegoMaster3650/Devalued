@@ -4,12 +4,12 @@ license="MIT License"
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
 
 [[mods]]
-modId="devalued"
+modId="diamante"
 version="${file.jarVersion}"
-displayName="Devalued"
+displayName="Diamante"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
-#logoFile="devalued.png"
+#logoFile="diamante.png"
 credits="Joe Mama"
 authors="LegoMaster3650"
 displayTest="MATCH_VERSION"
@@ -17,31 +17,23 @@ description='''
 Diamonds are dying! This is my attempt to save them.
 '''
 
-[[dependencies.devalued]]
+[[dependencies.diamante]]
 	modId="forge"
 	mandatory=true
 	versionRange="[43,)"
-	ordering="AFTER"
+	ordering="NONE"
 	side="BOTH"
 
-[[dependencies.devalued]]
+[[dependencies.diamante]]
 	modId="minecraft"
 	mandatory=true
 	versionRange="[1.19.2,1.20)"
-	ordering="AFTER"
+	ordering="NONE"
 	side="BOTH"
 
-[[dependencies.devalued]]
+[[dependencies.diamante]]
 	modId="goldenhopper"
 	mandatory=false
 	versionRange="[1.0.0,)"
 	ordering="AFTER"
 	side="BOTH"
-
-[[dependencies.devalued]]
-	modId="honeystickypistonmod"
-	mandatory=false
-	versionRange="[1.0.0,)"
-	ordering="AFTER"
-	side="BOTH"
-	
